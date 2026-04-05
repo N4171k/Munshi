@@ -1,0 +1,37 @@
+{
+  "name": "munshi-backend",
+  "version": "1.0.0",
+  "description": "A finance chatbot agent using LangChain and Gemini Flash 2.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "@langchain/community": "^0.3.32",
+    "@langchain/core": "^0.3.40",
+    "@langchain/google-genai": "^0.1.8",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "duck-duck-scrape": "^2.2.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.3",
+    "langchain": "^0.0.153",
+    "morgan": "^1.10.0",
+    "postgres": "^3.4.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  },
+  "keywords": [
+    "chatbot",
+    "finance",
+    "langchain",
+    "gemini",
+    "node",
+    "express"
+  ],
+  "author": "Your Name",
+  "license": "ISC"
+}

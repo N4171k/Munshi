@@ -1,0 +1,353 @@
+@import "tailwindcss";
+
+@theme {
+  --color-obsidian-100: #0B0B0D;
+  --color-obsidian-200: #121214;
+  --color-obsidian-300: #1A1A1D;
+  --color-obsidian-800: rgba(11, 11, 13, 0.8);
+  --color-obsidian-900: rgba(11, 11, 13, 0.95);
+  
+  --color-gold-400: #E5C14A;
+  --color-gold-500: #D4AF37;
+  --color-gold-600: #B5952F;
+  --color-gold-subtle: rgba(212,175,55,0.25);
+  --color-gold-dim: rgba(212,175,55,0.12);
+  --color-gold-glow: rgba(212,175,55,0.3);
+
+  --animate-glow: glow 2s ease-in-out infinite alternate;
+  --animate-slide-up-fade: slideUpFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  
+  @keyframes glow {
+    0% { box-shadow: 0 4px 14px rgba(212,175,55,0.05); }
+    100% { box-shadow: 0 4px 24px rgba(212,175,55,0.25); }
+  }
+
+  @keyframes slideUpFade {
+    0% { opacity: 0; transform: translateY(16px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* ========================================
+   MUNSHI — Design System (Groww/Zerodha Inspired)
+   ======================================== */
+
+:root {
+  /* —— Obsidian Luxury Theme —— */
+  --obsidian-1:     #0B0B0D;
+  --obsidian-2:     #121214;
+  --obsidian-3:     #1A1A1D;
+  --gold:           #D4AF37;
+  --gold-subtle:    rgba(212,175,55,0.25);
+
+  /* —— Backgrounds —— */
+  --bg-base:        var(--obsidian-2);
+  --bg-white:       var(--obsidian-1);
+  --bg-card:        var(--obsidian-2);
+  --bg-elevated:    var(--obsidian-3);
+  --bg-hover:       rgba(212,175,55,0.05);
+  --bg-sidebar:     var(--obsidian-1);
+  --bg-input:       var(--obsidian-1);
+
+  /* —— Borders —— */
+  --border-subtle:  var(--gold-subtle);
+  --border-strong:  var(--gold);
+  --border-focus:   var(--gold);
+
+  /* —— Text —— */
+  --text-primary:   #E5E7EB;
+  --text-secondary: #9CA3AF;
+  --text-muted:     #9CA3AF;
+  --text-inverse:   #000000;
+
+  /* —— Brand Accent —— */
+  --accent:         var(--gold);
+  --accent-hover:   #E5C14A;
+  --accent-dim:     rgba(212,175,55,0.12);
+  --accent-light:   rgba(212,175,55,0.08);
+
+  /* —— Semantic Colors —— */
+  --positive:       #D4AF37;
+  --positive-bg:    rgba(212,175,55,0.08);
+  --negative:       #EF4444;
+  --negative-bg:    rgba(239,68,68,0.1);
+  --blue:           #D4AF37;
+  --blue-bg:        rgba(212,175,55,0.08);
+  --purple:         #D4AF37;
+
+  /* —— Chart Palette —— */
+  --chart-1:        #D4AF37;
+  --chart-2:        #E5C14A;
+  --chart-3:        #B5952F;
+  --chart-4:        #F0D880;
+  --chart-5:        #8C7323;
+  --chart-6:        #C2A133;
+  --chart-7:        #E8CC6D;
+
+  /* —— Shadows —— */
+  --shadow-sm:      0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md:      0 1px 3px rgba(0, 0, 0, 0.6), 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg:      0 4px 6px rgba(0, 0, 0, 0.5), 0 10px 24px rgba(0, 0, 0, 0.6);
+  --shadow-xl:      0 8px 16px rgba(0, 0, 0, 0.6), 0 20px 40px rgba(0, 0, 0, 0.8);
+
+  /* —— Radii —— */
+  --radius-sm:      6px;
+  --radius-md:      8px;
+  --radius-lg:      12px;
+  --radius-xl:      16px;
+  --radius-2xl:     20px;
+  --radius-full:    9999px;
+
+  /* —— Typography —— */
+  --font-sans:      'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono:      'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+}
+
+/* ========================================
+   BASE RESET & STYLES
+   ======================================== */
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+.font-mono {
+  font-family: var(--font-mono) !important;
+}
+
+.text-positive { color: var(--positive) !important; }
+.text-negative { color: var(--negative) !important; }
+
+/* ========================================
+   SCROLLBAR
+   ======================================== */
+.custom-scrollbar::-webkit-scrollbar,
+#chatbot::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track,
+#chatbot::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb,
+#chatbot::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover,
+#chatbot::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.9); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.6; }
+  100% { transform: scale(0.9); opacity: 1; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.shimmer {
+  background: var(--bg-elevated);
+  background-image: linear-gradient(to right, var(--bg-elevated) 0%, var(--bg-card) 20%, var(--bg-elevated) 40%, var(--bg-elevated) 100%);
+  background-repeat: no-repeat;
+  background-size: 1000px 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ========================================
+   MARKDOWN BODY (for AI responses)
+   ======================================== */
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.markdown-body h1 { font-size: 1.5rem; }
+.markdown-body h2 { font-size: 1.25rem; }
+.markdown-body h3 { font-size: 1.1rem; }
+
+.markdown-body p {
+  margin-bottom: 0.75em;
+  color: var(--text-primary);
+  line-height: 1.7;
+}
+
+.markdown-body ul, .markdown-body ol {
+  margin-bottom: 0.75em;
+  padding-left: 1.5em;
+}
+
+.markdown-body li {
+  margin-bottom: 0.25em;
+  color: var(--text-primary);
+}
+
+.markdown-body strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.markdown-body code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--bg-elevated);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--accent);
+}
+
+.markdown-body pre {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  overflow-x: auto;
+  margin-bottom: 0.75em;
+}
+
+.markdown-body pre code {
+  background: none;
+  padding: 0;
+  color: var(--text-primary);
+}
+
+.markdown-body blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 12px;
+  margin: 0.75em 0;
+  color: var(--text-secondary);
+}
+
+.markdown-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+}
+
+.markdown-body th,
+.markdown-body td {
+  padding: 8px 12px;
+  border: 1px solid var(--border-subtle);
+  text-align: left;
+  font-size: 0.875rem;
+}
+
+.markdown-body th {
+  background: var(--bg-elevated);
+  font-weight: 600;
+}
+
+/* Chat-specific markdown */
+.markdown-body-chat p {
+  margin-bottom: 0.5em;
+  line-height: 1.6;
+  font-size: 0.875rem;
+}
+
+.markdown-body-chat code {
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  background: var(--bg-elevated);
+  padding: 1px 4px;
+  border-radius: 3px;
+  color: var(--accent);
+}
+
+.markdown-body-chat ul, .markdown-body-chat ol {
+  padding-left: 1.25em;
+  margin-bottom: 0.5em;
+}
+
+.markdown-body-chat li {
+  font-size: 0.875rem;
+  margin-bottom: 0.15em;
+}
+
+.markdown-body-chat strong {
+  font-weight: 600;
+}
+
+/* ========================================
+   FORM ELEMENTS
+   ======================================== */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+}
+
+/* Date input dark scheme override for light theme */
+input[type="date"] {
+  color-scheme: light !important;
+}
